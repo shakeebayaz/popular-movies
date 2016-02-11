@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_cccccc"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.techjini.myappportfolio.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_10"
+
+            android:gravity="center"
+            android:padding="@dimen/dp_10"
+            android:text="@string/my_nano_app" />
+
+        <Button
+            android:id="@+id/spotify_bnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+
+            android:background="@color/color_9575CD"
+            android:padding="@dimen/dp_10"
+            android:text="@string/spotif_streamer" />
+
+        <Button
+            android:id="@+id/score_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:background="@color/color_9575CD"
+            android:padding="@dimen/dp_10"
+            android:text="@string/score_app" />
+
+        <Button
+            android:id="@+id/libapp_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:background="@color/color_9575CD"
+            android:padding="@dimen/dp_10"
+            android:text="@string/lib_app" />
+
+        <Button
+            android:id="@+id/build_it_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+
+            android:background="@color/color_9575CD"
+            android:padding="@dimen/dp_10"
+            android:text="@string/build_It_bigger" />
+
+        <Button
+            android:id="@+id/xyz_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:background="@color/color_9575CD"
+            android:padding="@dimen/dp_10"
+            android:text="@string/xyz_reader" />
+
+        <Button
+            android:id="@+id/capstone_myapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:background="@color/color_009688"
+
+            android:padding="@dimen/dp_10"
+            android:text="@string/capstone" />
+    </LinearLayout>
+</ScrollView>
+
