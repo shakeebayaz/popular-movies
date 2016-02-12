@@ -1,11 +1,19 @@
 package com.digital.ayaz.NetworkLayer;
 
+import com.digital.ayaz.BuildConfig;
+import com.digital.ayaz.Model.Movie;
+
+import retrofit.Call;
+import retrofit.http.GET;
+import retrofit.http.Header;
+import retrofit.http.Headers;
+import retrofit.http.Query;
+
 /**
  * Created by Shakeeb on 1/11/2016
  */
 public interface ApiService {
     final String baseURL = "http://image.tmdb.org/t/p/w185";
-    final String API_KEY = "YOUR_API_KEY";
 
 
     //String baseURL="http://52.25.62.3/api/rest/techjini/";
@@ -48,5 +56,8 @@ public interface ApiService {
     @GET(url)
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     Call<CatalogModel> getCatalog(@Header("fltoken") String fltoken, @Header("guid") String guid);*/
+    @GET("discover/movie?api_key="+ BuildConfig.API_KEY)
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    Call<Movie.Response> getMovieList();
 
 }
