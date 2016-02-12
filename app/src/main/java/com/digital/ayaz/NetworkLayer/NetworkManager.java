@@ -1,5 +1,14 @@
 package com.digital.ayaz.NetworkLayer;
 
+import android.util.Log;
+
+import com.digital.ayaz.BuildConfig;
+import com.digital.ayaz.Model.Movie;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.logging.HttpLoggingInterceptor;
+
+import retrofit.Call;
+import retrofit.Callback;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
@@ -20,8 +29,17 @@ public class NetworkManager {
 
 
     private Retrofit getRetroFit() {
+
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+// set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient httpClient = new OkHttpClient();
+// add your other interceptors …
+// add logging as last interceptor
+        httpClient.interceptors().add(logging);  // <-- this is the important line!
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.themoviedb.org/3/discover/movie?").addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://api.themoviedb.org/3/").addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;
 
@@ -42,6 +60,13 @@ public class NetworkManager {
         catalogModel.enqueue(catalogModelCallback);
     }
 */
+
+    public void getMovie(Callback<Movie.Response> catalogModelCallback) {
+        Log.d(TAG, "Get Movie: ");
+        ApiService apiService = getApiService();
+        Call<Movie.Response> catalogModel = apiService.getMovieList();
+        catalogModel.enqueue(catalogModelCallback);
+    }
 
 
     private ApiService getApiService() {
