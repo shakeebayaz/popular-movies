@@ -5,15 +5,12 @@ import com.digital.ayaz.Model.Movie;
 
 import retrofit.Call;
 import retrofit.http.GET;
-import retrofit.http.Header;
 import retrofit.http.Headers;
-import retrofit.http.Query;
 
 /**
  * Created by Shakeeb on 1/11/2016
  */
 public interface ApiService {
-    final String baseURL = "http://image.tmdb.org/t/p/w185";
 
 
     //String baseURL="http://52.25.62.3/api/rest/techjini/";

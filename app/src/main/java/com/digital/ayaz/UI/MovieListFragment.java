@@ -1,6 +1,7 @@
 package com.digital.ayaz.UI;
 
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.digital.ayaz.R;
+import com.digital.ayaz.databinding.FragmentMovieListBinding;
 
 
 /**
@@ -24,8 +26,9 @@ public class MovieListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        FragmentMovieListBinding movieListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_list, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_list, container, false);
+        return movieListBinding.getRoot();
     }
 
 }

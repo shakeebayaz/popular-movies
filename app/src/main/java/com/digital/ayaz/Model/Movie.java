@@ -1,5 +1,7 @@
 package com.digital.ayaz.Model;
 
+import android.databinding.BaseObservable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,7 +11,7 @@ import java.util.List;
 /**
  * Created by Shakeeb on 13/2/16.
  */
-public class Movie {
+public class Movie extends BaseObservable {
 
     @SerializedName("poster_path")
     @Expose

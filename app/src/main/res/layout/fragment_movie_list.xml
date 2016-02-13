@@ -1,10 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.techjini.myappportfolio.PopularMovie.MovieListFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+        android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/movies_recycler_view"
         style="@style/CollectionView"
@@ -12,4 +11,5 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/item_movie" />
 
-</LinearLayout>
+    </FrameLayout>
+</layout>

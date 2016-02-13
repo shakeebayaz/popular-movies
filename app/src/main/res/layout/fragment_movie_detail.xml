@@ -1,8 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.techjini.myappportfolio.PopularMovie.MovieDetailFragment">
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -11,3 +11,4 @@
         android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
+</layout>
