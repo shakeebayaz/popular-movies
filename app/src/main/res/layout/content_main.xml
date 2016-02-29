@@ -92,7 +92,6 @@
             android:layout_marginBottom="@dimen/dp_15"
             android:layout_marginLeft="@dimen/dp_25"
             android:layout_marginRight="@dimen/dp_25"
-            android:background="@color/color_009688"
 
             android:padding="@dimen/dp_10"
             android:text="@string/capstone" />

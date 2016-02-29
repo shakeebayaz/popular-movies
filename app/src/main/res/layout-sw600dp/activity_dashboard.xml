@@ -15,6 +15,7 @@
             android:id="@+id/movies_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:background="#bbeeff"
             android:layout_weight="1" />
 
         <FrameLayout

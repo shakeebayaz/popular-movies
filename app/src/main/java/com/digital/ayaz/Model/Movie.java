@@ -1,6 +1,8 @@
 package com.digital.ayaz.Model;
 
 import android.databinding.BaseObservable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -11,7 +13,7 @@ import java.util.List;
 /**
  * Created by Shakeeb on 13/2/16.
  */
-public class Movie extends BaseObservable {
+public class Movie extends BaseObservable implements Parcelable {
 
     @SerializedName("poster_path")
     @Expose
@@ -55,6 +57,38 @@ public class Movie extends BaseObservable {
     @SerializedName("vote_average")
     @Expose
     private double voteAverage;
+
+    public Movie() {
+
+    }
+
+    protected Movie(Parcel in) {
+        posterPath = in.readString();
+        adult = in.readByte() != 0;
+        overview = in.readString();
+        releaseDate = in.readString();
+        id = in.readInt();
+        originalTitle = in.readString();
+        originalLanguage = in.readString();
+        title = in.readString();
+        backdropPath = in.readString();
+        popularity = in.readDouble();
+        voteCount = in.readInt();
+        video = in.readByte() != 0;
+        voteAverage = in.readDouble();
+    }
+
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 
     /**
      * @return The posterPath
@@ -251,7 +285,30 @@ public class Movie extends BaseObservable {
     public void setVoteAverage(double voteAverage) {
         this.voteAverage = voteAverage;
     }
-    public class Response {
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(posterPath);
+        dest.writeByte((byte) (adult ? 1 : 0));
+        dest.writeString(overview);
+        dest.writeString(releaseDate);
+        dest.writeInt(id);
+        dest.writeString(originalTitle);
+        dest.writeString(originalLanguage);
+        dest.writeString(title);
+        dest.writeString(backdropPath);
+        dest.writeDouble(popularity);
+        dest.writeInt(voteCount);
+        dest.writeByte((byte) (video ? 1 : 0));
+        dest.writeDouble(voteAverage);
+    }
+
+    public class Response implements Parcelable {
 
         @SerializedName("page")
         @Expose
@@ -266,78 +323,93 @@ public class Movie extends BaseObservable {
         @Expose
         private int totalPages;
 
+        protected Response(Parcel in) {
+            page = in.readInt();
+            results = in.createTypedArrayList(Movie.CREATOR);
+            totalResults = in.readInt();
+            totalPages = in.readInt();
+        }
+
+        public final Creator<Response> CREATOR = new Creator<Response>() {
+            @Override
+            public Response createFromParcel(Parcel in) {
+                return new Response(in);
+            }
+
+            @Override
+            public Response[] newArray(int size) {
+                return new Response[size];
+            }
+        };
+
         /**
-         *
-         * @return
-         * The page
+         * @return The page
          */
         public int getPage() {
             return page;
         }
 
         /**
-         *
-         * @param page
-         * The page
+         * @param page The page
          */
         public void setPage(int page) {
             this.page = page;
         }
 
         /**
-         *
-         * @return
-         * The results
+         * @return The results
          */
         public List<Movie> getResults() {
             return results;
         }
 
         /**
-         *
-         * @param results
-         * The results
+         * @param results The results
          */
         public void setResults(List<Movie> results) {
             this.results = results;
         }
 
         /**
-         *
-         * @return
-         * The totalResults
+         * @return The totalResults
          */
         public int getTotalResults() {
             return totalResults;
         }
 
         /**
-         *
-         * @param totalResults
-         * The total_results
+         * @param totalResults The total_results
          */
         public void setTotalResults(int totalResults) {
             this.totalResults = totalResults;
         }
 
         /**
-         *
-         * @return
-         * The totalPages
+         * @return The totalPages
          */
         public int getTotalPages() {
             return totalPages;
         }
 
         /**
-         *
-         * @param totalPages
-         * The total_pages
+         * @param totalPages The total_pages
          */
         public void setTotalPages(int totalPages) {
             this.totalPages = totalPages;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(page);
+            dest.writeTypedList(results);
+            dest.writeInt(totalResults);
+            dest.writeInt(totalPages);
+        }
     }
 
 }

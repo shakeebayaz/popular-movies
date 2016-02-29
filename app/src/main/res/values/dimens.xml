@@ -8,6 +8,8 @@
     <dimen name="dp_15">15dp</dimen>
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="dp_2">2dp</dimen>
-    <dimen name="item_spacing_full">4dp</dimen>
+    <dimen name="item_spacing_full">2dp</dimen>
     <dimen name="dp_1">1dp</dimen>
+    <dimen name="layout_padding">8dp</dimen>
+    <dimen name="dp_50">70dp</dimen>
 </resources>

@@ -16,7 +16,7 @@ public class Utils {
     @BindingAdapter({"app:imageUrl"})
     public static void loadImage(ImageView view, String imagePath) {
         if (!TextUtils.isEmpty(imagePath)) {
-            Glide.with(view.getContext()).load(Constants.baseURL + imagePath).placeholder(new ColorDrawable(Color.TRANSPARENT)).into(view);
+            Glide.with(view.getContext()).load(Constants.baseURL + imagePath).placeholder(new ColorDrawable(Color.TRANSPARENT)).crossFade().into(view);
         }
 
     }
