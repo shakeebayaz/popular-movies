@@ -6,7 +6,18 @@ package com.digital.ayaz.Utils;
 public class Constants {
 
     public static final String baseURL = "http://image.tmdb.org/t/p/w185/";
+
     public interface BundleKeys {
-        String DATA =  "com.digital.ayaz." + "movieData";
+        String DATA = "com.digital.ayaz." + "movieData";
+    }
+
+    public interface Sort {
+        String POPULARITY_ASCENDING = "popularity.asc";
+        String POPULARITY_DESCENDING = "popularity.desc";
+
+        String VOTE_AVERAGE_ASCENDING = "vote_average.asc";
+        String VOTE_AVERAGE_DESCENDING = "vote_average.desc";
+
+
     }
 }

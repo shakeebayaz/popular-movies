@@ -31,6 +31,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         mContext=context;
         mItemMovieListClickedListener=itemclickedListener;
     }
+    public void clear(){
+        //TODO
+        //lear list without using method
+        mMovieList.clear();
+    }
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -78,5 +83,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public long getItemId(int position) {
         return super.getItemId(position);
     }
+
 
 }

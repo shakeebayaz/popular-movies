@@ -2,8 +2,8 @@ package com.digital.ayaz.NetworkLayer;
 
 import android.util.Log;
 
-import com.digital.ayaz.BuildConfig;
 import com.digital.ayaz.Model.Movie;
+import com.digital.ayaz.Utils.Constants;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
@@ -44,27 +44,10 @@ public class NetworkManager {
         return retrofit;
 
     }
-/*
-
-    public void getNews(Callback<Map<String, Map<String, String>>> callback) {
-        ApiService service = getApiService();
-        Call<Map<String, Map<String, String>>> model = service.getNewsList();
-        model.enqueue(callback);
-
-    }
-
-    public void getCatalog(Callback<CatalogModel> catalogModelCallback) {
-        Log.d(TAG, "getCatalog: ");
-        ApiService apiService = getApiService();
-        Call<CatalogModel> catalogModel = apiService.getCatalog("123456","1234567");
-        catalogModel.enqueue(catalogModelCallback);
-    }
-*/
-
-    public void getMovie(Callback<Movie.Response> catalogModelCallback) {
+    public void getMovie(Callback<Movie.Response> catalogModelCallback,String sort,int pageIndex) {
         Log.d(TAG, "Get Movie: ");
         ApiService apiService = getApiService();
-        Call<Movie.Response> catalogModel = apiService.getMovieList();
+        Call<Movie.Response> catalogModel = apiService.getMovieList(sort,pageIndex);
         catalogModel.enqueue(catalogModelCallback);
     }
 

@@ -1,8 +1,7 @@
 package com.digital.ayaz.NetworkLayer;
 
-import android.util.Log;
-
 import com.digital.ayaz.Model.Movie;
+import com.digital.ayaz.Utils.Constants;
 import com.digital.ayaz.Utils.DialogUtils;
 
 import retrofit.Callback;
@@ -19,9 +18,9 @@ public class NetworkHelper {
     public interface MovieResponseListener {
         void onMovieResponseReceive(Movie.Response data);
     }
-    public void getMovieList(MovieResponseListener movieResponseListener){
+    public void getMovieList(MovieResponseListener movieResponseListener,String sort,int pageIndex){
         mMovieResponseListener=movieResponseListener;
-        NetworkManager.getInstance().getMovie(mMoviewResponseCallback);
+        NetworkManager.getInstance().getMovie(mMoviewResponseCallback,sort,pageIndex);
     }
 
 
