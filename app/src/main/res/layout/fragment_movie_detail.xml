@@ -8,6 +8,9 @@
             name="data"
             type="com.digital.ayaz.Model.Movie" />
 
+        <variable
+            name="genre"
+            type="String" />
     </data>
 
     <LinearLayout
@@ -65,15 +68,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@{@string/rating(data.voteAverage)}"
-                            android:gravity="center"
                             android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:layout_marginBottom="@dimen/dp_10"
                             android:textSize="@dimen/text_size_large" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@{data.releaseDate}"
+                            android:text="@{@string/release_date(data.releaseDate)}"
+                            android:textSize="@dimen/text_size_large" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{genre}"
+                            android:textStyle="italic"
+                            android:layout_marginLeft="@dimen/dp_3"
+                            android:lineSpacingExtra="@dimen/dp_1"
                             android:textSize="@dimen/text_size_large" />
                     </LinearLayout>
                 </LinearLayout>

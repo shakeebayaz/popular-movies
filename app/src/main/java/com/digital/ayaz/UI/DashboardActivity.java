@@ -3,6 +3,7 @@ package com.digital.ayaz.UI;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -10,6 +11,10 @@ import com.digital.ayaz.Listener.MovieListClickedListener;
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.R;
 import com.digital.ayaz.Utils.Constants;
+import com.digital.ayaz.Utils.Utils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class DashboardActivity extends AppCompatActivity implements MovieListClickedListener {
@@ -44,7 +49,7 @@ public class DashboardActivity extends AppCompatActivity implements MovieListCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
