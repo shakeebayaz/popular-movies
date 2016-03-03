@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.digital.ayaz.Listener.EndlessRecyclerOnScrollListener;
 import com.digital.ayaz.Listener.MovieListClickedListener;
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.MovieAdapter;
@@ -57,8 +58,14 @@ public MovieListFragment(){
                              Bundle savedInstanceState) {
         FragmentMovieListBinding movieListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_list, container, false);
         mRecyclerView = movieListBinding.moviesRecyclerView;
-        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
-
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(mContext, 2);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener(gridLayoutManager) {
+    @Override
+    public void onLoadMore(int current_page) {
+        Log.e("test","current_page");
+    }
+});
 
         return movieListBinding.getRoot();
     }

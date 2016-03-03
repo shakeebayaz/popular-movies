@@ -21,7 +21,7 @@ public class DashboardActivity extends AppCompatActivity implements MovieListCli
     private boolean isTablet;
     private MovieListFragment mMovieListFragment;
     private MovieDetailFragment mMovieDetailFragment;
-    private String mSort = Constants.Sort.POPULARITY_DESCENDING;
+    private String mSort = Constants.Sort.REVENUE_DESCENDING;
     public Toolbar mToolbar;
 
     @Override
@@ -35,6 +35,7 @@ public class DashboardActivity extends AppCompatActivity implements MovieListCli
         setSupportActionBar(mToolbar);
 
         isTablet = getResources().getBoolean(R.bool.isTablet);
+
         if (isTablet) {
             mMovieDetailFragment = new MovieDetailFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.movie_details_container, mMovieDetailFragment).commit();
@@ -49,7 +50,7 @@ public class DashboardActivity extends AppCompatActivity implements MovieListCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override

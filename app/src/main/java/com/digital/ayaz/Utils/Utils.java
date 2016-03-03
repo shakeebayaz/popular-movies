@@ -17,13 +17,22 @@ import java.io.InputStream;
  */
 public class Utils {
 
-    @BindingAdapter({"app:imageUrl"})
-    public static void loadImage(ImageView view, String imagePath) {
+    @BindingAdapter({"app:imagePosterUrl"})
+    public static void loadPosterImage(ImageView view, String imagePath) {
         if (!TextUtils.isEmpty(imagePath)) {
-            Glide.with(view.getContext()).load(Constants.baseURL + imagePath).placeholder(new ColorDrawable(Color.TRANSPARENT)).crossFade().into(view);
+            Glide.with(view.getContext()).load(Constants.POSTER_BASE_URL + imagePath).placeholder(new ColorDrawable(Color.TRANSPARENT)).crossFade().into(view);
         }
 
     }
+    @BindingAdapter({"app:imageBackdropUrl"})
+    public static void loadBackdropImage(ImageView view, String imagePath) {
+        if (!TextUtils.isEmpty(imagePath)) {
+            Glide.with(view.getContext()).load(Constants.BACKDROP_BASE_URL + imagePath).placeholder(new ColorDrawable(Color.TRANSPARENT)).crossFade().into(view);
+        }
+
+    }
+
+
     public static String loadJSONFromAsset(Context context,String filename) {
         String json = null;
         try {

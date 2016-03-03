@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.R;
@@ -71,8 +72,10 @@ String genre= "Genre:";
         // Inflate the layout for this fragment
         moviedetailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_detail, container, false);
         // movieListBinding.setData(mMovie);
-        moviedetailBinding.setData(mMovie);
-        ((DashboardActivity) getActivity()).mToolbar.setNavigationIcon(R.drawable.ic_up);
+   if(!getResources().getBoolean(R.bool.isTablet)) {
+       ((DashboardActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       setMovieData(mMovie);
+   }
         ((DashboardActivity) getActivity()).mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

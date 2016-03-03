@@ -7,4 +7,7 @@
     <color name="color_cccccc">#cccccc</color>
     <color name="body_text_white">#FFFFFFFF</color>
     <color name="color_FC0AAB85">#FC0AAB85</color>
+    <color name="color_fafafa">#fafafa</color>
+    <color name="color_8a000000">#8a000000</color>
+
 </resources>
