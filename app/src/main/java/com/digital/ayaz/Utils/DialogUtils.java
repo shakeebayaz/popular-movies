@@ -80,6 +80,10 @@ public class DialogUtils {
             sProgressDialog = null;
         }
     }
+    public static void showToast(String msg, Context ctx) {
+        //TODO Add flag to enable or disable toast
+        Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
+    }
 
 
 }

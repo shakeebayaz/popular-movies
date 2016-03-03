@@ -4,6 +4,8 @@ import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -47,5 +49,11 @@ public class Utils {
             return null;
         }
         return json;
+    }
+    public static boolean isConnectionAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnectedOrConnecting();
     }
 }

@@ -6,13 +6,16 @@ android {
     dataBinding {
         enabled = true
     }
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.digital.ayaz"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "API_KEY", "\"{MOVIE_DB_API_KEY}\""
+        buildConfigField "String", "API_KEY", "\"MOVIE KEY\""
     }
     buildTypes {
         release {

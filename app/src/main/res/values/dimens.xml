@@ -16,4 +16,5 @@
     <bool name="isTablet">false</bool>
     <dimen name="sp_25">25sp</dimen>
     <dimen name="dp_299">299dp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
 </resources>

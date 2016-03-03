@@ -11,6 +11,7 @@ import com.digital.ayaz.Listener.MovieListClickedListener;
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.R;
 import com.digital.ayaz.Utils.Constants;
+import com.digital.ayaz.Utils.DialogUtils;
 import com.digital.ayaz.Utils.Utils;
 
 import org.json.JSONException;
@@ -69,17 +70,25 @@ public class DashboardActivity extends AppCompatActivity implements MovieListCli
                 break;
             case R.id.menu_sort_rating:
                 item.setChecked(!item.isChecked());
-                onSortChanged(Constants.Sort.VOTE_AVERAGE_DESCENDING);
+                    DialogUtils.displayProgressDialog(this);
+                    onSortChanged(Constants.Sort.VOTE_AVERAGE_DESCENDING);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
     private void onSortChanged(String sort) {
-        mSort = sort;
-        mMovieListFragment.reloadMovies(sort);
-        mMovieListFragment.scrollToTop();
+        if (Utils.isConnectionAvailable(this)) {
+            DialogUtils.displayProgressDialog(this);
+            mSort = sort;
+            mMovieListFragment.reloadMovies(sort);
+            mMovieListFragment.scrollToTop();
+        }
+    else{
+        DialogUtils.showToast(getResources().getString(R.string.no_network),this);
+    }
     }
 
     @Override
