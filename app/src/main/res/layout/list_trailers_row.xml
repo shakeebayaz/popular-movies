@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.digital.ayaz.Model.TrailerModel.Trailer" />
+
+        <variable
+            name="clickHandler"
+            type="com.digital.ayaz.adapter.TrailersListAdapter.MovieViewHolder" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_selector"
+        android:onClick="@{clickHandler.OnPosterClicked}"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/button_play"
+                android:layout_width="70dip"
+                android:layout_height="59dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="0.06"
+                android:background="@null"
+
+                android:src="@android:drawable/ic_media_play"
+                android:text=">" />
+
+            <TextView
+                android:id="@+id/textview_trailer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#767676"
+                android:textSize="13dp"
+
+                android:text="@{data.name}"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginTop="25dp"
+            android:background="@android:color/black" />
+    </LinearLayout>
+</layout>

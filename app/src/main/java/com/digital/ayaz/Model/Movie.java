@@ -32,7 +32,7 @@ public class Movie extends BaseObservable implements Parcelable {
     private List<Integer> genreIds = new ArrayList<Integer>();
     @SerializedName("id")
     @Expose
-    private int id;
+    private long id;
     @SerializedName("original_title")
     @Expose
     private String originalTitle;
@@ -163,14 +163,14 @@ public class Movie extends BaseObservable implements Parcelable {
     /**
      * @return The id
      */
-    public int getId() {
+    public long getId() {
         return id;
     }
 
     /**
      * @param id The id
      */
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -297,7 +297,7 @@ public class Movie extends BaseObservable implements Parcelable {
         dest.writeByte((byte) (adult ? 1 : 0));
         dest.writeString(overview);
         dest.writeString(releaseDate);
-        dest.writeInt(id);
+        dest.writeLong(id);
         dest.writeString(originalTitle);
         dest.writeString(originalLanguage);
         dest.writeString(title);

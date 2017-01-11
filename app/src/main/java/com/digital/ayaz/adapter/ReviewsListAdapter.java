@@ -1,4 +1,4 @@
-package com.digital.ayaz;
+package com.digital.ayaz.adapter;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -9,45 +9,44 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.digital.ayaz.BR;
-import com.digital.ayaz.Listener.MovieListClickedListener;
-import com.digital.ayaz.Model.Movie;
+import com.digital.ayaz.Model.ReviewModel;
+import com.digital.ayaz.R;
 
 import java.util.List;
 
+
 /**
- * Created by Shakeeb on 2/13/2016.
+ * Created by Shakeeb on 10/1/2017.
  */
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+
+
+public class ReviewsListAdapter extends RecyclerView.Adapter<ReviewsListAdapter.MovieViewHolder> {
     private LayoutInflater mLayoutInflater;
-    private List<Movie> mMovieList;
-    private  Context mContext;
-    private MovieListClickedListener mItemMovieListClickedListener;
+    private List<ReviewModel.Review> mMovieList;
+    private Context mContext;
 
 
-
-    public MovieAdapter(Context context, List<Movie> list, MovieListClickedListener itemclickedListener) {
+    public ReviewsListAdapter(Context context, List<ReviewModel.Review> list) {
         mLayoutInflater = LayoutInflater.from(context);
         mMovieList = list;
-        mContext=context;
-        mItemMovieListClickedListener=itemclickedListener;
+        mContext = context;
     }
-    public void clear(){
-        //TODO
-        //lear list without using method
+
+    public void clear() {
         mMovieList.clear();
     }
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewDataBinding viewDataBinding = DataBindingUtil.inflate(mLayoutInflater,
-                R.layout.item_movie, parent, false);
+                R.layout.list_reviews_row, parent, false);
 
         return new MovieViewHolder(viewDataBinding);
     }
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
-        Movie mMovie=mMovieList.get(position);
+        ReviewModel.Review mMovie = mMovieList.get(position);
         holder.bindItem(mMovie);
     }
 
@@ -61,16 +60,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public MovieViewHolder(ViewDataBinding binding) {
             super(binding.getRoot());
-            this.binding=binding;
+            this.binding = binding;
         }
-        public void OnPosterClicked(View view) {
-            final Movie movie = mMovieList.get(getAdapterPosition());
-            mItemMovieListClickedListener.onMovieItemClicked(movie);
 
+        public void OnPosterClicked(View view) {
+            final ReviewModel.Review movie = mMovieList.get(getAdapterPosition());
         }
+
         public void bindItem(Object object) {
-            binding.setVariable(BR.data,object);
-            binding.setVariable(BR.clickHandler,this);
+            binding.setVariable(BR.data, object);
+            binding.setVariable(BR.clickHandler, this);
         }
     }
 
@@ -86,3 +85,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
 
 }
+
+

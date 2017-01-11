@@ -1,6 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-  >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,9 +11,15 @@
         <variable
             name="genre"
             type="String" />
+        <variable
+            name="clickHandler"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="isFav"
+            type="boolean" />
     </data>
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -56,11 +62,26 @@
                     android:textColor="@color/color_8a000000"
                     android:textSize="@dimen/sp_25"
                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:background="@{isFav ? @android:color/holo_orange_dark : @android:color/white}"
+                    android:textAllCaps="true"
+                    android:text="@{isFav ? @string/remove_favorites : @string/add_to_favorites}"
+                    android:padding="@dimen/dp_5"
+                    android:onClick="@{clickHandler}"
+                    android:textColor="@color/color_8a000000"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5"
                     android:layout_marginLeft="@dimen/dp_15"
                     android:text="@{@string/rating(data.voteAverage)}"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -91,6 +112,34 @@
                     android:lineSpacingExtra="@dimen/dp_2"
                     android:text="@{data.overview}"
                     android:textSize="@dimen/text_size_large" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_15"
+                    android:layout_marginTop="@dimen/layout_padding"
+                    android:lineSpacingExtra="@dimen/dp_2"
+                    android:text="Trailer"
+                    android:textSize="@dimen/text_size_large"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/trailer_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/list_trailers_row" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_15"
+                    android:layout_marginTop="@dimen/layout_padding"
+                    android:lineSpacingExtra="@dimen/dp_2"
+                    android:text="Review "
+                    android:textSize="@dimen/text_size_large"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/review_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/list_reviews_row" />
             </LinearLayout>
-        </ScrollView>
+       </android.support.v4.widget.NestedScrollView>
 </layout>
