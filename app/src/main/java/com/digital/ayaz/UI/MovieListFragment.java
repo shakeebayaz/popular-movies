@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -73,6 +74,12 @@ public class MovieListFragment extends BaseFragment implements NetworkHelper.Mov
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(MovieData,  (ArrayList<? extends Parcelable>) mMovieList);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentMovieListBinding movieListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_list, container, false);
@@ -80,6 +87,21 @@ public class MovieListFragment extends BaseFragment implements NetworkHelper.Mov
         mRecyclerView = movieListBinding.moviesRecyclerView;
         mGridLayoutManager = new GridLayoutManager(mContext, 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+        if(savedInstanceState!=null){
+            mMovieList= savedInstanceState.getParcelableArrayList(MovieData);
+            mMovieAdapter.setData(mMovieList);
+        }
+        else {
+            // reloadMovies(String sort)
+            DialogUtils.displayProgressDialog(mContext);
+            if (TextUtils.isEmpty(Preference.getInstance(mContext).getSortOrder())) {
+                reloadMovies(mSort);
+            } else {
+                mSort = Preference.getInstance(mContext).getSortOrder();
+                reloadMovies(mSort);
+            }
+        }
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -111,14 +133,7 @@ public class MovieListFragment extends BaseFragment implements NetworkHelper.Mov
                 }
             }
         });
-       // reloadMovies(String sort)
-        DialogUtils.displayProgressDialog(mContext);
-        if (TextUtils.isEmpty(Preference.getInstance(mContext).getSortOrder())) {
-            reloadMovies(mSort);
-        } else {
-            mSort = Preference.getInstance(mContext).getSortOrder();
-            reloadMovies(mSort);
-        }
+
         return movieListBinding.getRoot();
     }
 
