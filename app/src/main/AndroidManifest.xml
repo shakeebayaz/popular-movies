@@ -36,6 +36,14 @@
 
             android:theme="@style/Theme.PopularMovies.BrowseMovies" />
 
+        <receiver
+            android:name=".receiver_n_service.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
         <!-- SyncAdapter's dummy authentication service -->
        <!-- <service
             android:name=".sync.AuthenticatorService">

@@ -170,4 +170,10 @@ public class MovieDetailFragment extends BaseFragment implements View.OnClickLis
     public void onTrailerItemClicked(TrailerModel.Trailer movie) {
         startActivity(new Intent(getActivity(), YoutubeFullScreenActivity.class).putExtra(YoutubeFullScreenActivity.VIDEO_ID, movie.key));
     }
+    @Override
+    public void onResume() {
+        setInternetConnectionListner(moviedetailBinding.interMsg);
+        super.onResume();
+
+    }
 }

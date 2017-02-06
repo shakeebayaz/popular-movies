@@ -29,9 +29,22 @@
                 android:layout_height="wrap_content"
                 android:background="@color/color_fafafa"
                 android:orientation="vertical">
-                          <FrameLayout
+                <TextView
+                    android:id="@+id/inter_msg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:background="@android:color/holo_red_dark"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="@string/no_internet_connection"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+                          <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
                     android:background="@color/color_fafafa">
 
                     <ImageView
