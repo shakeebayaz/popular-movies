@@ -1,16 +1,9 @@
 package com.digital.ayaz.Utils;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnCancelListener;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.digital.ayaz.R;
 
@@ -80,10 +73,5 @@ public class DialogUtils {
             sProgressDialog = null;
         }
     }
-    public static void showToast(String msg, Context ctx) {
-        //TODO Add flag to enable or disable toast
-        Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
-    }
-
 
 }

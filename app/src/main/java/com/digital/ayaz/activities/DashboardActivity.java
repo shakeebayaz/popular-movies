@@ -103,7 +103,7 @@ public class DashboardActivity extends BaseActivity implements MovieListClickedL
             mMovieListFragment.reloadMovies(sort);
             mMovieListFragment.scrollToTop();
         } else {
-            DialogUtils.showToast(getResources().getString(R.string.no_network), this);
+            showSnack(this,R.string.no_network);
         }
     }
 
