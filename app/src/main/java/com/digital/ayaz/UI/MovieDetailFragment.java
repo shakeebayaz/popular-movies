@@ -23,6 +23,8 @@ import com.digital.ayaz.R;
 import com.digital.ayaz.Utils.Constants;
 import com.digital.ayaz.Utils.DialogUtils;
 import com.digital.ayaz.Utils.Utils;
+import com.digital.ayaz.activities.DashboardActivity;
+import com.digital.ayaz.activities.YoutubeFullScreenActivity;
 import com.digital.ayaz.adapter.ReviewsListAdapter;
 import com.digital.ayaz.adapter.TrailersListAdapter;
 import com.digital.ayaz.data.MoviesContract;

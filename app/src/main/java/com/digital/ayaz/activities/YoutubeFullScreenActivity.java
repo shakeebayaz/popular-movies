@@ -1,4 +1,4 @@
-package com.digital.ayaz.UI;
+package com.digital.ayaz.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

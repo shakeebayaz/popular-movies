@@ -1,4 +1,4 @@
-package com.digital.ayaz.UI;
+package com.digital.ayaz.activities;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -11,13 +11,15 @@ import android.view.MenuItem;
 import com.digital.ayaz.Listener.MovieListClickedListener;
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.R;
+import com.digital.ayaz.UI.MovieDetailFragment;
+import com.digital.ayaz.UI.MovieListFragment;
 import com.digital.ayaz.Utils.Constants;
 import com.digital.ayaz.Utils.DialogUtils;
 import com.digital.ayaz.Utils.Utils;
 import com.digital.ayaz.data.Preference;
 
 
-public class DashboardActivity extends AppCompatActivity implements MovieListClickedListener {
+public class DashboardActivity extends BaseActivity implements MovieListClickedListener {
     private boolean isTablet;
     private MovieListFragment mMovieListFragment;
     private MovieDetailFragment mMovieDetailFragment;

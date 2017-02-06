@@ -1,15 +1,12 @@
 package com.digital.ayaz.UI;
 
 
-import android.database.Cursor;
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,12 +19,12 @@ import android.view.ViewGroup;
 import com.digital.ayaz.Listener.MovieListClickedListener;
 import com.digital.ayaz.Model.Movie;
 import com.digital.ayaz.Utils.Constants;
+import com.digital.ayaz.activities.DashboardActivity;
 import com.digital.ayaz.adapter.MovieAdapter;
 import com.digital.ayaz.NetworkLayer.NetworkHelper;
 import com.digital.ayaz.R;
 import com.digital.ayaz.Utils.DialogUtils;
 import com.digital.ayaz.adapter.MovieListLoader;
-import com.digital.ayaz.data.MoviesContract;
 import com.digital.ayaz.data.Preference;
 import com.digital.ayaz.databinding.FragmentMovieListBinding;
 

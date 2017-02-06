@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.PopularMovies">
         <activity
-            android:name=".UI.DashboardActivity"
+            android:name=".activities.DashboardActivity"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.PopularMovies.BrowseMovies">
@@ -31,7 +31,7 @@
             android:exported="false"
      />
         <activity
-            android:name=".UI.YoutubeFullScreenActivity"
+            android:name=".activities.YoutubeFullScreenActivity"
             android:label="@string/app_name"
 
             android:theme="@style/Theme.PopularMovies.BrowseMovies" />

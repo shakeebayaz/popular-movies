@@ -40,5 +40,6 @@
     <string name="sync_account_type">themovies.com</string>
     <string name="content_authority">com.digital.ayaz</string>
     <string name="mark_as_favorite">Mark As Favorite</string>
+    <string name="progress_msg">Please wait</string>
 
 </resources>
