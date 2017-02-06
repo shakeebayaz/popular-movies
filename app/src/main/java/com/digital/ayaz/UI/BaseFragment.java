@@ -48,7 +48,7 @@ public class BaseFragment extends Fragment implements ConnectivityReceiver.Conne
         }
     }
 
-    public void hideKeyboard() {
+    protected void hideKeyboard() {
         View view = getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager)mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -71,7 +71,7 @@ public class BaseFragment extends Fragment implements ConnectivityReceiver.Conne
             }
         }
     }
-    public boolean isNetworkConnected() {
+    protected boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;
     }
